@@ -1,0 +1,41 @@
+ <div class="main">    
+     
+    <form name="itemForm">      
+      <input id="Value" name="Value" required [(ngModel)]="newItem.Value" minlength="3" maxlength="10"  placeholder="Enter Any Item"      
+        class="form-control" >      
+    </form>      
+    <br>      
+    <div>     
+    <button type="submit" (click)="AddItem()" [disabled]="IsForUpdate == true" class="btn btn-add">Add</button>      
+   
+    <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false" class="btn btn-update">Update</button>     
+  </div>
+        
+
+
+<div class="panel-body" style="text-align: -webkit-center;">  
+   <mat-card class="alt1">
+  <div *ngFor="let data of myItems;let i= index" class="alert alt alert-info" style="width: 50%;">  
+    <!-- <mat-card style="width:100rem">
+      <mat-card-content> -->
+    {{data.Value}}  
+    <div class="edit">
+    <a href="#" (click)="DeleteItem(i)" style="float: right;">  
+      <span class="del">delete</span>  
+    </a>  
+    <a href="#" (click)="EditItem(i)" style="float: right;padding-right: 8px;">  
+      <span class="edt">edit</span>  
+    </a>  
+  </div>
+  <!-- </mat-card-content>
+   </mat-card> -->
+  </div>  
+  
+
+  <div *ngIf="myItems.length == 0" class="alert alert-info" style="width: 50%;">  
+    Items Are Empty !!!  
+  </div>   
+  
+</mat-card>
+</div>  
+</div>
